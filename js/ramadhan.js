@@ -35,13 +35,13 @@ $(function() {
 
         var cityName = $('input[type="text"]').val()
 
-        fetch(API_URL + '/sholat/kota/cari/' + cityName)
+        fetch(API_URL + '/sholat/format/json/kota/nama/' + cityName)
             .then(status)
             .then(json)
             .then(function(response) {
                 let cityCode = response.kota[0].id
 
-                fetch(API_URL + '/sholat/jadwal/' + cityCode + '/tanggal/' + dateNow())
+                fetch(API_URL + '/sholat/format/json/jadwal/kota/' + cityCode + '/tanggal/' + dateNow())
                     .then(status)
                     .then(json)
                     .then(function(response) {
