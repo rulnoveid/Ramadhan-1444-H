@@ -23,7 +23,7 @@ function dateNow() {
     if (day.length < 2)
         day = '0' + day
 
-    return [year, month, day].join('-')
+    return [year, month, day].join('/')
 }
 
 $(function() {
@@ -41,7 +41,7 @@ $(function() {
             .then(function(response) {
                 let cityCode = response.kota[0].id
 
-                fetch(API_URL + '/sholat/jadwal/' + cityCode + '/tanggal/' + dateNow())
+                fetch(API_URL + '/sholat/jadwal/' + cityCode + dateNow())
                     .then(status)
                     .then(json)
                     .then(function(response) {
