@@ -1,4 +1,4 @@
-const API_URL = 'https://api.banghasan.com'
+const API_URL = 'https://api.myquran.com/v1'
 
 function status(response) {
     return response.status !== 200 ? Promise.reject(new Error(response.status)) : Promise.resolve(response)
