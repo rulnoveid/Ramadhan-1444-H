@@ -1,4 +1,4 @@
-const API_URL = 'https://api.banghasan.com'
+const API_URL = 'https://api.myquran.com/v1'
 
 function status(response) {
     return response.status !== 200 ? Promise.reject(new Error(response.status)) : Promise.resolve(response)
@@ -35,13 +35,13 @@ $(function() {
 
         var cityName = $('input[type="text"]').val()
 
-        fetch(API_URL + '/sholat/format/json/kota/nama/' + cityName)
+        fetch(API_URL + '/sholat/kota/cari/' + cityName)
             .then(status)
             .then(json)
             .then(function(response) {
                 let cityCode = response.kota[0].id
 
-                fetch(API_URL + '/sholat/format/json/jadwal/kota/' + cityCode + '/tanggal/' + dateNow())
+                fetch(API_URL + '/sholat/jadwal/' + cityCode + '/2021/06/23')
                     .then(status)
                     .then(json)
                     .then(function(response) {
