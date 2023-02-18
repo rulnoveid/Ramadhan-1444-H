@@ -39,7 +39,7 @@ $(function() {
             .then(status)
             .then(json)
             .then(function(response) {
-                let cityCode = response.kota[0].id
+                let cityCode = response.cari[0].id
 
                 fetch(API_URL + '/sholat/jadwal/' + cityCode + dateNow())
                     .then(status)
